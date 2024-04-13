@@ -12,5 +12,3 @@ Teknik Özellikler
     • Kullanıcı şifreleri hashlenerek veritabanında tutulmuştur. Böylece veritabanı ele geçirilse bile şifreler güvende kalacaktır. 
     • Testler için solution içerisine Xunit projesi oluşturulmuştur. 
 
-
-![image](https://github.com/cofidiss/foorestaurantapi-repo/assets/107804233/36b8f769-b900-45d1-beb1-117a663b7c64)
