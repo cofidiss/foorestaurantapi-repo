@@ -1,0 +1,19 @@
+﻿using System;
+
+namespace FooRestaurantApi.ServicesLayer.DTO.Order
+{
+    public class FilterOrderRequestDto
+    {
+        public int? PageNumber { get; set; }
+        public int? PageSize { get; set; }
+        public long? OrderId { get; set; }
+        public DateTime? OrderDateStart { get; set; }
+        public DateTime? OrderDateEnd { get; set; }
+        public int? StatusId { get; set; }
+        public DateTime? DeliveryDateStart { get; set; }
+        public DateTime? DeliveryDateEnd { get; set; }
+        public decimal? PriceStart { get; set; }
+        public decimal? PriceEnd { get; set; }
+        public String Address { get; set; }
+    }
+}
