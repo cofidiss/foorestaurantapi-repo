@@ -91,7 +91,7 @@ new Claim(nameof(UserEntity.LastUpdateDate), apiResponseDto.SuccessData.LastUpda
                 return Ok();
             }
 
-            return Unauthorized();
+            return Unauthorized("Wrong username or password");
         }
         [RoleIdAuthorize((int)RoleIdEnum.StandartUser)]
         [HttpPut("api/user")]
