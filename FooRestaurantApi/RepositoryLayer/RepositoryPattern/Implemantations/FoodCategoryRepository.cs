@@ -35,16 +35,15 @@ namespace FooRestaurantApi.RepositoryLayer.RepositoryPattern.Implemantations
         {
 
             var apiResponseModel = new ApiResponseModel<string, long>();
-            var categoryListInDb = await Filter(x => x.DayId == createFoodCategoryRequestModel.DayId);
+            var categoryListInDb = await Filter(x => x.DayId == createFoodCategoryRequestModel.DayId && x.OrderInDay >=createFoodCategoryRequestModel.OrderInDay);
             var now = DateTime.Now;
             foreach (var categoryEntity in categoryListInDb)
             {
-                if (categoryEntity.OrderInDay >= createFoodCategoryRequestModel.OrderInDay)
-                {
+              
                     categoryEntity.OrderInDay = categoryEntity.OrderInDay + 1;
                     categoryEntity.LastUpdatedBy = _userId;
                     categoryEntity.LastUpdateDate = now;
-                }
+              
 
 
             }
@@ -129,8 +128,6 @@ namespace FooRestaurantApi.RepositoryLayer.RepositoryPattern.Implemantations
                     entityToUpdate.LastUpdateDate = now;
                     entityToUpdate.LastUpdatedBy = _userId;
 
-                    _dbContext.UpdateRange(sourceDayCategoryList);
-                    _dbContext.UpdateRange(destDayCategoryList);
                     _dbContext.Update(entityToUpdate);
 
                     await _dbContext.SaveChangesAsync();
@@ -161,9 +158,15 @@ namespace FooRestaurantApi.RepositoryLayer.RepositoryPattern.Implemantations
         {
             var apiResponseModel = new ApiResponseModel<string, string>() { SuccessData = String.Empty };
             var now = DateTime.Now;
+            var foodCategoryEntityToDelete = (await (from FoodCategory in _dbContext.Set<FoodCategoryEntity>()
+                                                 where FoodCategory.Id == id
+                                                 select FoodCategory).ToListAsync()).First();
+
+
             var FoodCategoryEntityList = (await (from FoodCategory in _dbContext.Set<FoodCategoryEntity>()
+                                                 where FoodCategory.DayId == foodCategoryEntityToDelete.DayId && FoodCategory.OrderInDay > foodCategoryEntityToDelete.OrderInDay
                                                  select FoodCategory).ToListAsync());
-            var foodCategoryEntityToDelete = FoodCategoryEntityList.Where(x => x.Id == id).First();
+
 
             var FoodListToSoftDeleteForCategory = (await (from Food in _dbContext.Set<FoodEntity>()
                                                           where Food.CategoryId == id && Food.IsEnabled == true
@@ -181,16 +184,10 @@ namespace FooRestaurantApi.RepositoryLayer.RepositoryPattern.Implemantations
 
             foreach (var foodCategoryEntity in FoodCategoryEntityList)
             {
-                if (foodCategoryEntityToDelete.OrderInDay < foodCategoryEntity.OrderInDay)
-                {
-
-
-                    foodCategoryEntity.OrderInDay = foodCategoryEntity.OrderInDay - 1; ;
+                   foodCategoryEntity.OrderInDay = foodCategoryEntity.OrderInDay - 1; ;
                     foodCategoryEntity.LastUpdateDate = now;
                     foodCategoryEntity.LastUpdatedBy = _userId;
-
-
-                }
+                           
 
 
 

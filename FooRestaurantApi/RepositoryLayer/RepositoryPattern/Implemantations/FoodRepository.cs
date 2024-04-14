@@ -37,16 +37,15 @@ namespace FooRestaurantApi.RepositoryLayer.RepositoryPattern.Implemantations
             var apiResponseModel = new ApiResponseModel<string, long>();
 
 
-            var FoodListInDb = await Filter(x => x.IsEnabled && x.CategoryId == createFoodRequestModel.CategoryId);
+            var FoodListInDb = await Filter(x => x.IsEnabled && x.CategoryId == createFoodRequestModel.CategoryId && x.OrderInCategory >= createFoodRequestModel.OrderInCategory);
             var now = DateTime.Now;
             foreach (var FoodEntity in FoodListInDb)
             {
-                if (FoodEntity.OrderInCategory >= createFoodRequestModel.OrderInCategory)
-                {
+               
                     FoodEntity.OrderInCategory = FoodEntity.OrderInCategory + 1;
                     FoodEntity.LastUpdatedBy = _userId;
                     FoodEntity.LastUpdateDate = now;
-                }
+              
 
 
             }
@@ -163,18 +162,19 @@ namespace FooRestaurantApi.RepositoryLayer.RepositoryPattern.Implemantations
             var entityToSoftDelete = (await (from Food in _dbContext.Set<FoodEntity>()
                                              where Food.Id == id && Food.IsEnabled
                                              select Food).ToListAsync()).First();
+
+
             var FoodsInThisCategoryList = (await (from Food in _dbContext.Set<FoodEntity>()
-                                                  where Food.CategoryId == entityToSoftDelete.CategoryId && Food.IsEnabled == true
+                                                  where Food.CategoryId == entityToSoftDelete.CategoryId && Food.IsEnabled == true && Food.OrderInCategory > entityToSoftDelete.OrderInCategory
                                                   select Food).ToListAsync());
             foreach (var FoodInThisCategory in FoodsInThisCategoryList)
             {
-                if (FoodInThisCategory.OrderInCategory > entityToSoftDelete.OrderInCategory)
-                {
+             
                     FoodInThisCategory.OrderInCategory = FoodInThisCategory.OrderInCategory - 1;
                     FoodInThisCategory.LastUpdatedBy = _userId;
                     FoodInThisCategory.LastUpdateDate = now;
 
-                }
+                
             }
             entityToSoftDelete.LastUpdatedBy = _userId;
             entityToSoftDelete.LastUpdateDate = now;
