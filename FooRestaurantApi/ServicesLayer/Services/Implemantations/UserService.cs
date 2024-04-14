@@ -73,7 +73,7 @@ namespace FooRestaurantApi.ServicesLayer.Services.Implemantations
             userEntityToUpdate.Address = updateUserDto.Address;
             userEntityToUpdate.UserName = updateUserDto.UserName;
             userEntityToUpdate.Phone = updateUserDto.Phone;
-            userEntityToUpdate.Password = userEntityToUpdate.Password.GetHashedStringAsHex();
+            userEntityToUpdate.Password = updateUserDto.Password.GetHashedStringAsHex();
             userEntityToUpdate.LastUpdateDate = DateTime.Now;
             userEntityToUpdate.LastUpdatedBy = _userId;
 
