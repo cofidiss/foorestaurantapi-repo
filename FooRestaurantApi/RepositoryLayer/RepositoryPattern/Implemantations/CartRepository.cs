@@ -32,7 +32,7 @@ namespace FooRestaurantApi.RepositoryLayer.RepositoryPattern.Implemantations
         {
             var foodList = await (from food in _dbContext.Set<FoodEntity>()
                                   join category in _dbContext.Set<FoodCategoryEntity>() on food.CategoryId equals category.Id
-                                  where foodIds.Contains(food.Id) && category.DayId == (int)(DateTime.Now.DayOfWeek)
+                                  where foodIds.Contains(food.Id) && category.DayId == (int)(DateTime.Now.DayOfWeek) && food.IsEnabled
                                   select food).ToListAsync();
             return foodList;
 
