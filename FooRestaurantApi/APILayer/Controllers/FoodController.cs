@@ -65,7 +65,7 @@ namespace FooRestaurantApi.APILayer.Controllers
         }
         [RoleIdAuthorize((int)RoleIdEnum.Admin)]
         [HttpGet("api/admin/food/weekday/{id}")]
-        public async Task<IActionResult> GetFoodByWeekDayAdmin([Range(1, 7, ErrorMessage = "The Id parameter must be a between 1-7.")] int id)
+        public async Task<IActionResult> GetFoodByWeekDayAdmin([Range(0, 6, ErrorMessage = "The Id parameter must be a between 0-6.")] int id)
         {
 
 
@@ -75,7 +75,7 @@ namespace FooRestaurantApi.APILayer.Controllers
         }
         [RoleIdAuthorize((int)RoleIdEnum.StandartUser)]
         [HttpGet("api/food/weekday/{id}")]
-        public async Task<IActionResult> GetFoodByWeekDay([Range(1, 7, ErrorMessage = "The Id parameter must be a between 1-7.")] int id)
+        public async Task<IActionResult> GetFoodByWeekDay([Range(0, 6, ErrorMessage = "The Id parameter must be a between 0-6.")] int id)
         {
             var apiResponseDto = await _foodService.GetFoodByWeekDay(id);
 
