@@ -59,11 +59,11 @@ namespace FooRestaurantApi.ServicesLayer.Services.Implemantations
 
                 return apiResponseDto;
             }
-            var userEntitywtihSameNameList = await _userRepository.Filter(x => x.UserName.Equals(updateUserDto.UserName));
+            var userEntitywtihSameNameList = await _userRepository.Filter(x => x.UserName.Equals(updateUserDto.UserName) && x.Id != _userId);
             if (userEntitywtihSameNameList.Count() != 0)
             {
                 apiResponseDto.StatusCode = HttpStatusCode.BadRequest;
-                apiResponseDto.ErrorData = $"Username {_userId} already exists.";
+                apiResponseDto.ErrorData = $"Username {updateUserDto.UserName} already exists.";
 
 
                 return apiResponseDto;
@@ -72,7 +72,6 @@ namespace FooRestaurantApi.ServicesLayer.Services.Implemantations
             var userEntityToUpdate = userEntityToUpdateList.First();
             userEntityToUpdate.Address = updateUserDto.Address;
             userEntityToUpdate.UserName = updateUserDto.UserName;
-            userEntityToUpdate.Password = updateUserDto.Password;
             userEntityToUpdate.Phone = updateUserDto.Phone;
             userEntityToUpdate.Password = userEntityToUpdate.Password.GetHashedStringAsHex();
             userEntityToUpdate.LastUpdateDate = DateTime.Now;
