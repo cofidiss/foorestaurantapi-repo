@@ -9,15 +9,15 @@ namespace FooRestaurantApi.DomainLayer.Model.Enums
         [Display(Name = "TuesDay")]
         TuesDay = 1,
         [Display(Name = "Wednesday")]
-        Wednesday = 3,
+        Wednesday = 2,
         [Display(Name = "Thursday")]
-        Thursday = 4,
+        Thursday = 3,
         [Display(Name = "Friday")]
-        Friday = 5,
+        Friday = 4,
         [Display(Name = "Saturday")]
-        Saturday = 6,
+        Saturday = 5,
         [Display(Name = "Sunday")]
-        Sunday = 7
+        Sunday = 6
 
     }
 }
