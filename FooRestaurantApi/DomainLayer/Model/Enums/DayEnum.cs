@@ -4,20 +4,20 @@ namespace FooRestaurantApi.DomainLayer.Model.Enums
 {
     public enum DayEnum
     {
-        [Display(Name = "Monday")]
-        Monday = 0,
-        [Display(Name = "TuesDay")]
-        TuesDay = 1,
-        [Display(Name = "Wednesday")]
-        Wednesday = 2,
-        [Display(Name = "Thursday")]
-        Thursday = 3,
-        [Display(Name = "Friday")]
-        Friday = 4,
-        [Display(Name = "Saturday")]
-        Saturday = 5,
         [Display(Name = "Sunday")]
-        Sunday = 6
+        Sunday = 0,
+        [Display(Name = "Monday")]
+        Monday =1,
+        [Display(Name = "TuesDay")]
+        TuesDay = 2,
+        [Display(Name = "Wednesday")]
+        Wednesday = 3,
+        [Display(Name = "Thursday")]
+        Thursday = 4,
+        [Display(Name = "Friday")]
+        Friday = 5,
+        [Display(Name = "Saturday")]
+        Saturday = 6
 
     }
 }
