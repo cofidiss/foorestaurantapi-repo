@@ -22,9 +22,11 @@ namespace FooRestaurantApi.APILayer.Extensions
         public static void RegisterRequiredServices(this IServiceCollection services)
         {
             #region ServiceLayer
+            services.AddControllersWithViews(); // Örnek bir MVC servisi ekleme
+
             services.AddAutoMapper(cfg => cfg.AddMaps(typeof(IUserService).Assembly));
             services.AddScoped<IUserService, UserService>();
-
+            services.AddScoped<ITaskTakipService, TaskTakipService>();
 
             services.AddScoped<IFoodService, FoodService>();
             services.AddScoped<IFoodCategoryService, FoodCategoryService>();
@@ -36,7 +38,7 @@ namespace FooRestaurantApi.APILayer.Extensions
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IUserRepository, UserRepository>();
 
-
+            services.AddScoped<ITaskTakipRepository, TaskTakipRepository>();
             services.AddScoped<IFoodRepository, FoodRepository>();
             services.AddScoped<IFoodCategoryRepository, FoodCategoryRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
@@ -90,7 +92,7 @@ namespace FooRestaurantApi.APILayer.Extensions
 
 
             services.AddDbContext<PostgreDbContext>(item => item.UseNpgsql(
-        "User ID=postgres;Password=ZAQ12wsx;Server=localhost;Port=5432;Database=foo_restaurant_db;Integrated Security=true;Pooling=true;"));
+        "User ID=postgres;Password=ZAQ12wsx;Server=localhost;Port=5432;Database=plan;Integrated Security=true;Pooling=true;"));
 
 
 

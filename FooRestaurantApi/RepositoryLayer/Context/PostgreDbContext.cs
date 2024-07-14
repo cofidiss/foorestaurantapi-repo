@@ -25,6 +25,8 @@ namespace FooRestaurantApi.RepositoryLayer.Context
             modelBuilder.ApplyConfiguration(new FoodCategoryMap());
             modelBuilder.ApplyConfiguration(new OrderItemMap());
             modelBuilder.ApplyConfiguration(new OrderMap());
+            modelBuilder.ApplyConfiguration(new TaskMap());
+            modelBuilder.ApplyConfiguration(new CategoryMap());
             base.OnModelCreating(modelBuilder);
         }
     }

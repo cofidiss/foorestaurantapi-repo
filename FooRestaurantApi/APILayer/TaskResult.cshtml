@@ -1,0 +1,56 @@
+﻿@using FooRestaurantApi.DomainLayer.Model.TaskTakip
+@model  TaskTakipMainModel;
+<h1>Fruit List</h1>
+<style> 
+    p{ white-space:pre-wrap}
+    tr {vertical-align:baseline; text-align:center;}
+</style>
+<table>
+
+    <thead>
+
+        <tr>
+            <th>
+                WeekId
+
+            </th>
+      @foreach (var category in Model.CategoryEntityList.OrderBy(x=>x.Id))
+    {
+        <th>@category.Name</th>
+    }
+        <th>
+       TotalEstimatedWorkHour
+    </th>
+    <th>
+       TotalWorkedHour
+    </th>
+            <th>
+       TotalPercentCompletion
+    </th>
+        </tr>
+    </thead>
+    <tbody>
+ 
+             @foreach (var tableResultAsStringModel in Model.TableResultAsStringModelList)
+    {
+            <tr>
+            <td> <p>@tableResultAsStringModel.WeekId</p>  </td> 
+     <td> <p>@tableResultAsStringModel.Category1Result</p>  </td> 
+                 <td> <p>@tableResultAsStringModel.Category2Result</p>  </td> 
+                 <td> <p>@tableResultAsStringModel.Category3Result</p>  </td> 
+                 <td> <p>@tableResultAsStringModel.Category4Result</p>  </td> 
+                 <td> <p>@tableResultAsStringModel.Category5Result</p>  </td> 
+                 <td> <p>@tableResultAsStringModel.Category6Result</p>  </td> 
+                   <td> <p>@tableResultAsStringModel.Category7Result</p>  </td> 
+                 <td> <p>@tableResultAsStringModel.TotalEstimatedWorkHour</p>  </td> 
+                      <td> <p>@tableResultAsStringModel.TotalWorkedHour</p>  </td> 
+                         <td> <p>@tableResultAsStringModel.TotalPercentCompletion</p>  </td> 
+        </tr>
+    }
+
+    </tbody>
+
+</table>
+<ul>
+ 
+</ul>
