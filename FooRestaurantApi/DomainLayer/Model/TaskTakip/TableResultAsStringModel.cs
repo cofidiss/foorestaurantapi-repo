@@ -19,6 +19,7 @@ namespace FooRestaurantApi.DomainLayer.Model.TaskTakip
         public string Category5Result { get; set; }
         public string Category6Result { get; set; }
         public string Category7Result { get; set; }
+        public string Category8Result { get; set; }
         public string TotalEstimatedWorkHour { get; set; }
         public string TotalWorkedHour { get; set; }
         public string TotalPercentCompletion { get; set; }

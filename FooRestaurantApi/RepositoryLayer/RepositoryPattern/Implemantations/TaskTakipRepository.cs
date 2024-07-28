@@ -77,7 +77,7 @@ namespace FooRestaurantApi.RepositoryLayer.RepositoryPattern.Implemantations
                 tableResultAsStringModel.Category5Result = taskForCategory(5, taskLisForWeek);
                 tableResultAsStringModel.Category6Result = taskForCategory(6, taskLisForWeek);
                 tableResultAsStringModel.Category7Result = taskForCategory(7, taskLisForWeek);
-
+                tableResultAsStringModel.Category8Result = taskForCategory(8, taskLisForWeek);
                 tableResultAsStringModel.TotalEstimatedWorkHour = taskLisForWeek.Sum(x => x.EstimatedWorkHour).ToString();
 
                 tableResultAsStringModel.TotalWorkedHour = taskLisForWeek.Sum(x => x.WorkedHour).ToString();
