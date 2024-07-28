@@ -4,6 +4,7 @@ using FooRestaurantApi.RepositoryLayer.Context;
 using FooRestaurantApi.RepositoryLayer.RepositoryPattern.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace FooRestaurantApi.RepositoryLayer.RepositoryPattern.Implemantations
@@ -78,10 +79,10 @@ namespace FooRestaurantApi.RepositoryLayer.RepositoryPattern.Implemantations
                 tableResultAsStringModel.Category6Result = taskForCategory(6, taskLisForWeek);
                 tableResultAsStringModel.Category7Result = taskForCategory(7, taskLisForWeek);
                 tableResultAsStringModel.Category8Result = taskForCategory(8, taskLisForWeek);
-                tableResultAsStringModel.TotalEstimatedWorkHour = taskLisForWeek.Sum(x => x.EstimatedWorkHour).ToString();
+                tableResultAsStringModel.TotalEstimatedWorkHour = taskLisForWeek.Sum(x => x.EstimatedWorkHour).ToString("F2");
 
-                tableResultAsStringModel.TotalWorkedHour = taskLisForWeek.Sum(x => x.WorkedHour).ToString();
-                tableResultAsStringModel.TotalPercentCompletion = (taskLisForWeek.Average(x => x.PercentCompletion) *100).ToString();
+                tableResultAsStringModel.TotalWorkedHour = taskLisForWeek.Sum(x => x.WorkedHour).ToString("F2");
+                tableResultAsStringModel.TotalPercentCompletion = (taskLisForWeek.Average(x => x.PercentCompletion) *100).ToString("F2"); 
                 tableResultAsStringModelList.Add(tableResultAsStringModel);
             }
 
