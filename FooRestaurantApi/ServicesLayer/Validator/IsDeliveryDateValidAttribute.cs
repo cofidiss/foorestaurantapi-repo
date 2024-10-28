@@ -14,8 +14,8 @@ namespace FooRestaurantApi.ServicesLayer.Validator
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
 
         {
-            var now = DateTime.Now;
-
+            var now = DateTime.Now.ToUniversalTime();
+            now.ToUniversalTime();
             var deliveryDate = (DateTime)value;
             if (!(now.AddMinutes(-5) < deliveryDate && now.Date.AddDays(1) > deliveryDate))
             {

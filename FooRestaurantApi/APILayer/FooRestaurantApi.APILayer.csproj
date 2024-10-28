@@ -27,4 +27,8 @@
     <ProjectReference Include="..\ServicesLayer\FooRestaurantApi.ServicesLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="images\" />
+  </ItemGroup>
+
 </Project>

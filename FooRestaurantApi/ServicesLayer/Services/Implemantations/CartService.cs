@@ -108,7 +108,7 @@ namespace FooRestaurantApi.ServicesLayer.Services.Implemantations
                 var cartItemDetailDto = new CartItemDetailDto()
                 {
                     FoodDescription = foodEntity.Description,
-                    UnitPirce = foodEntity.Price,
+                    UnitPrice = foodEntity.Price,
                     FoodId = foodEntity.Id,
                     FoodName = foodEntity.Name,
                     Image = foodEntity.Image,
@@ -147,8 +147,11 @@ namespace FooRestaurantApi.ServicesLayer.Services.Implemantations
 
 
 
-                var updatedCartItemDtoList = cartItemDtoList.Where(x => x.FoodId != foodId);
-                session.SetString(_cartSessionKey, JsonSerializer.Serialize(updatedCartItemDtoList));
+            cartItemDtoList.Where(x => x.FoodId == foodId && x.Quantity >0).First().Quantity -=1 ;
+
+                var updatedCartItemDtoList =  cartItemDtoList.Where(x => x.Quantity > 0);
+               
+           session.SetString(_cartSessionKey, JsonSerializer.Serialize(updatedCartItemDtoList));
                 apiResponseDto.ErrorData = $"FoodId {foodId} removed from cart.";
                 return apiResponseDto;
             }

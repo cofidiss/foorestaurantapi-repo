@@ -9,6 +9,6 @@
         public string FoodDescription { get; set; }
         public byte[] Image { get; set; }
         public int Quantity { get; set; }
-        public decimal UnitPirce { get; set; }
+        public decimal UnitPrice { get; set; }
     }
 }

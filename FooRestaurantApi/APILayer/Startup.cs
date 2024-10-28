@@ -1,12 +1,14 @@
-using FooRestaurantApi.APILayer.Extensions;
+﻿using FooRestaurantApi.APILayer.Extensions;
 using FooRestaurantApi.APILayer.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Serilog;
+using System.IO;
 
 namespace FooRestaurantApi.APILayer
 {
@@ -44,7 +46,12 @@ namespace FooRestaurantApi.APILayer
 
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
-
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+          Path.Combine(env.ContentRootPath, "images")), // wwwroot/images klasörü
+                RequestPath = "/images" // URL'de /images yazıldığında bu klasöre bakar
+            });
             app.UseRouting();
 
             app.UseAuthentication();
