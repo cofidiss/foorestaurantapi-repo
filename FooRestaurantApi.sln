@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FooRestaurantApi.Repository
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FooRestaurantApi.DomainLayer", "FooRestaurantApi\DomainLayer\FooRestaurantApi.DomainLayer.csproj", "{7739B5A1-DDA3-4501-B9ED-26378B2DD7CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FooRestaurantApi.Test", "FooRestaurantApi.Test\FooRestaurantApi.Test.csproj", "{F4E58F52-D1B6-4FE8-863B-F60A7B80F90C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FooRestaurantApi.Test", "FooRestaurantApi.Test\FooRestaurantApi.Test.csproj", "{F4E58F52-D1B6-4FE8-863B-F60A7B80F90C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

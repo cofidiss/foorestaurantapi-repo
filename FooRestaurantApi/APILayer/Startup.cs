@@ -46,12 +46,7 @@ namespace FooRestaurantApi.APILayer
 
             app.UseCors(x => x.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
 
-            app.UseStaticFiles(new StaticFileOptions
-            {
-                FileProvider = new PhysicalFileProvider(
-          Path.Combine(env.ContentRootPath, "images")), // wwwroot/images klasörü
-                RequestPath = "/images" // URL'de /images yazıldığında bu klasöre bakar
-            });
+      
             app.UseRouting();
 
             app.UseAuthentication();

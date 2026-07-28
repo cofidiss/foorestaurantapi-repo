@@ -1,0 +1,16 @@
+**/bin/
+**/obj/
+**/.vs/
+**/.vscode/
+**/TestResults/
+
+.git
+.gitignore
+.gitattributes
+
+README.md
+
+
+*.user
+*.suo
+*.cache

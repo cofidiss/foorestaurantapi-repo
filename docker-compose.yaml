@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  foo-restaurant-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: foo-restaurant-api
+    depends_on:
+      - postgres
+    ports:
+      - "3000:3000"
+    environment:
+      ASPNETCORE_ENVIRONMENT: Docker
+
+  postgres:
+    image: postgres:17
+    container_name: foo-restaurant-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ZAQ12wsx
+      POSTGRES_DB: foo_restaurant_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/init:/docker-entrypoint-initdb.d:ro
+
+volumes:
+  postgres-data:

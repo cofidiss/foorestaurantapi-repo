@@ -87,10 +87,9 @@ namespace FooRestaurantApi.APILayer.Extensions
             });
 
 
-
-
-            services.AddDbContext<PostgreDbContext>(item => item.UseNpgsql(
-        "User ID=postgres;Password=ZAQ12wsx;Server=localhost;Port=5432;Database=foo_restaurant_db;Integrated Security=true;Pooling=true;"));
+            services.AddDbContext<PostgreDbContext>(options =>
+                options.UseNpgsql(
+                    Configuration.GetConnectionString("DefaultConnection")));
 
 
 
