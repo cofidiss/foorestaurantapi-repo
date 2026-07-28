@@ -24,7 +24,7 @@ namespace FooRestaurantApi.APILayer
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.RegisterRequiredServices();
+            services.RegisterRequiredServices(Configuration);
 
 
         }

@@ -11,15 +11,17 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using System;
+using System.Configuration;
 
 namespace FooRestaurantApi.APILayer.Extensions
 {
     public static class CustomExtensions
     {
-        public static void RegisterRequiredServices(this IServiceCollection services)
+        public static void RegisterRequiredServices(this IServiceCollection services, IConfiguration configuration)
         {
             #region ServiceLayer
             services.AddAutoMapper(cfg => cfg.AddMaps(typeof(IUserService).Assembly));
@@ -89,7 +91,7 @@ namespace FooRestaurantApi.APILayer.Extensions
 
             services.AddDbContext<PostgreDbContext>(options =>
                 options.UseNpgsql(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    configuration.GetConnectionString("DefaultConnection")));
 
 
 
