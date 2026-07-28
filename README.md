@@ -1,5 +1,9 @@
 
-<img width="1262" height="654" alt="image" src="https://github.com/user-attachments/assets/e97e6db4-1ec3-4ad8-8f99-2b3d0e28939b" />
+
+https://github.com/user-attachments/assets/152d83f1-8430-42ba-bbd0-0b292a156981
+
+<img width="1390" height="722" alt="rest-Tablolar drawio" src="https://github.com/user-attachments/assets/494bc02f-8e80-4fdb-8498-c60ad7414479" />
+
 
 
 # Project Workflow
