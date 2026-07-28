@@ -4,6 +4,9 @@ https://github.com/user-attachments/assets/152d83f1-8430-42ba-bbd0-0b292a156981
 
 <img width="1390" height="722" alt="rest-Tablolar drawio" src="https://github.com/user-attachments/assets/494bc02f-8e80-4fdb-8498-c60ad7414479" />
 
+<img width="4289" height="346" alt="mermaid-diagram (4)" src="https://github.com/user-attachments/assets/f612a769-7555-4396-b413-d24208a54dc9" />
+<img width="3504" height="1682" alt="mermaid-diagram (5)" src="https://github.com/user-attachments/assets/ea9d03d9-47b1-40e0-9133-cff1a47a84f6" />
+<img width="5084" height="415" alt="mermaid-diagram (3)" src="https://github.com/user-attachments/assets/21b5a6ba-8301-490a-b6f3-afdfa6cc5b28" />
 
 
 # Project Workflow
