@@ -24,7 +24,7 @@ namespace FooRestaurantApi.APILayer.Authorization
 
 
             }
-            if (roleId == requirement.RoleId)
+            if (roleId >= requirement.RoleId)
             {
                 context.Succeed(requirement);
             }
