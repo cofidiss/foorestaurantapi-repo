@@ -1,3 +1,7 @@
+
+<img width="1262" height="654" alt="image" src="https://github.com/user-attachments/assets/e97e6db4-1ec3-4ad8-8f99-2b3d0e28939b" />
+
+
 # Project Workflow
 
 ## **1. User Authentication**
