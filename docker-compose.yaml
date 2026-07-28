@@ -12,6 +12,7 @@ services:
       - "3000:3000"
     environment:
       ASPNETCORE_ENVIRONMENT: Docker
+      ASPNETCORE_URLS: http://+:3000
 
   postgres:
     image: postgres:17
